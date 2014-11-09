@@ -8,7 +8,7 @@ package org.lasalle.javaweb.av2.managedbeans;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.RequestScoped;
 import org.lasalle.javaweb.av2.modelo.Estilo;
 import org.lasalle.javaweb.av2.sessao.EstiloFacade;
 

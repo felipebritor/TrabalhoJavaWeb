@@ -7,8 +7,8 @@ package org.lasalle.javaweb.av2.managedbeans;
 
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import org.lasalle.javaweb.av2.modelo.Artista;
 import org.lasalle.javaweb.av2.sessao.ArtistaFacade;
 
