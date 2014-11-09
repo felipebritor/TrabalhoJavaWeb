@@ -30,6 +30,7 @@ public abstract class AbstractBean<T> {
             Logger.getLogger(AbstractBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public AbstractBean(){}
 
     public String cancelar() {
         setEdt(null);
