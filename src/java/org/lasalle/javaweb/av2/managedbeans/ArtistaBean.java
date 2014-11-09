@@ -39,7 +39,7 @@ public class ArtistaBean extends AbstractBean<Artista>{
     }
     
 
-    public List<Artista> getUsuarios(){
+    public List<Artista> getArtistas(){
         
         return artistaFacade.findAll();
     }
