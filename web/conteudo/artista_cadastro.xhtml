@@ -1,0 +1,53 @@
+<ui:composition template="../templates/template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                            
+    <ui:define name="conteudo">
+        
+        <p:growl id="status" showDetail="true" />
+
+        <h:form id="form">
+            Nome:<p:inputText id="nome" value="#{artistaBean.obj.nome}" /><br/>
+            <p:commandButton id="salvar" action="#{artistaBean.salvar}" value="Salvar" ajax="false" />
+            <p:commandButton id="voltar" action="index" value="Voltar" ajax="false" />
+
+            <br/>
+
+            <p:dataTable  id="categorias" value="#{artistaBean.artistas}" var="obj">
+                <f:facet name="header">
+                    Categorias Cadastradas
+                </f:facet>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText id="outDtNome" rendered="#{obj != artistaBean.edt}" value="#{obj.nome}" />
+                    <h:inputText id="inDtNome" rendered="#{obj == artistaBean.edt}" value="#{artistaBean.edt.nome}" />
+                </p:column>
+                <p:column style="width: 20%">
+                    <f:facet name="header">
+                        <h:outputText value="Ações" />
+                    </f:facet>
+                    <p:commandLink id="editar" rendered="#{obj != artistaBean.edt}" update=":form:categorias">  
+                        <h:graphicImage value="imagens/pencil.png" />
+                        <f:setPropertyActionListener value="#{obj}" target="#{artistaBean.edt}" />  
+                    </p:commandLink>
+                    <h:commandLink id="cancelar" action="#{artistaBean.cancelar}" rendered="#{obj == artistaBean.edt}">
+                        <h:graphicImage value="imagens/remove.png" />
+                    </h:commandLink>
+                    <h:commandLink id="dtSalvar" action="#{artistaBean.salvar}" rendered="#{obj == artistaBean.edt}">
+                        <h:graphicImage value="imagens/save.png" />
+                    </h:commandLink>
+                    <p:commandLink id="excluir" action="#{artistaBean.excluir}" update=":form:categorias">
+                        <h:graphicImage value="imagens/trash.png" />
+                        <f:setPropertyActionListener value="#{obj}" target="#{artistaBean.selected}" />
+                    </p:commandLink>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+    </ui:define>
+    
+</ui:composition>
