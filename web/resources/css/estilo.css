@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    border:0;
+    padding:0;
+}
+#container,#topo{
+    width:1020px;
+    margin: 0 auto;
+    padding:5px;
+}
+#container{
+     height: 920px;
+}
+#topo{
+    background-color: burlywood;
+}
+#menu{
+    width: 235px;
+    height: inherit;
+    float:left;
+}
+#conteudo{
+    width:775px;
+    height: inherit;
+    float: right;
+    padding: 5px;
+}
+
