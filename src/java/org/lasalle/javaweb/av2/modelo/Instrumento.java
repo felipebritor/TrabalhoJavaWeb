@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.lasalle.javaweb.av2.modelo;
 
 import java.io.Serializable;
@@ -5,19 +10,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
+/**
+ *
+ * @author Vitor
+ */
 @Entity
-public class Computador implements Serializable {
+public class Instrumento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private String modelo;
-    private float preco;
-    @ManyToOne
-    private Fabricante fabricante;
 
     public Long getId() {
         return id;
@@ -37,10 +41,10 @@ public class Computador implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Computador)) {
+        if (!(object instanceof Instrumento)) {
             return false;
         }
-        Computador other = (Computador) object;
+        Instrumento other = (Instrumento) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -49,7 +53,7 @@ public class Computador implements Serializable {
 
     @Override
     public String toString() {
-        return "org.lasalle.javaweb.av2.modelo.Computador[ id=" + id + " ]";
+        return "org.lasalle.javaweb.av2.modelo.Instrumento[ id=" + id + " ]";
     }
 
     /**
@@ -64,34 +68,6 @@ public class Computador implements Serializable {
      */
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    /**
-     * @return the modelo
-     */
-    public String getModelo() {
-        return modelo;
-    }
-
-    /**
-     * @param modelo the modelo to set
-     */
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    /**
-     * @return the preco
-     */
-    public float getPreco() {
-        return preco;
-    }
-
-    /**
-     * @param preco the preco to set
-     */
-    public void setPreco(float preco) {
-        this.preco = preco;
     }
     
 }

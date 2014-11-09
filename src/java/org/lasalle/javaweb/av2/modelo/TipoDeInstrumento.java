@@ -13,15 +13,15 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Avell B153
+ * @author Vitor
  */
 @Entity
-public class Fabricante implements Serializable {
+public class TipoDeInstrumento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nome;
+    private String descricao;
 
     public Long getId() {
         return id;
@@ -41,10 +41,10 @@ public class Fabricante implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Fabricante)) {
+        if (!(object instanceof TipoDeInstrumento)) {
             return false;
         }
-        Fabricante other = (Fabricante) object;
+        TipoDeInstrumento other = (TipoDeInstrumento) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -53,21 +53,21 @@ public class Fabricante implements Serializable {
 
     @Override
     public String toString() {
-        return "org.lasalle.javaweb.av2.modelo.Fabricante[ id=" + id + " ]";
+        return "org.lasalle.javaweb.av2.modelo.TipoDeInstrumento[ id=" + id + " ]";
     }
 
     /**
-     * @return the nome
+     * @return the descricao
      */
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return descricao;
     }
 
     /**
-     * @param nome the nome to set
+     * @param descricao the descricao to set
      */
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     
 }
